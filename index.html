@@ -1,29 +1,16 @@
-import os
-from google import genai
-
-client = genai.Client(
-    api_key=os.environ.get("GEMINI_API_KEY"),
-)
-
-tools = [
-    {
-        'type': 'google_search',
-    },
-]
-
-generation_config = {
-    'max_output_tokens': 65536,
-    'top_p': 0.95,
-    'thinking_level': 'medium',
-}
-
-interaction = client.interactions.create(
-    model='models/gemini-3.8-flash',
-    input="""INSERT_INPUT_HERE""",
-    tools=tools,
-    generation_config=generation_config,
-)
-
-print(interaction.steps[-1])
-
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini Search Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
